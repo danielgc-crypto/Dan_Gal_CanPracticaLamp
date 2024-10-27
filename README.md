@@ -1,4 +1,7 @@
-# Dan_Gal_CanPracticaLamp
+# Dani_Gal_CanPracticaLamp
  
-descargar apache
-descargar mysql
+## Máquina apache  
+**Configuración del vagrant file.**  
+Primero hay que actualizar la lista de paquetes y comprobar que todos estén en su última versión. 
+`sudo apt update`  
+`sudo apt upgrade -y`
