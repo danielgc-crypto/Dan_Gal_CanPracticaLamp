@@ -22,7 +22,7 @@ Lo siguiente es crear un host virtual para que se cambie el directorio por defec
 `sudo a2dissite 000-default.conf`  
 Se tiene que hacer una copia del fichero anterior y configurarlo de la siguiente forma.  
 ![image](https://github.com/user-attachments/assets/87eb6959-f07f-4f3d-a662-a12644b33722)  
-Por último queda habilitar el sitio.  
+Queda habilitar el sitio.  
 `a2ensite lampdani.conf`  
 Y por último falta aplicar la configuración.  
 `sudo systemctl restart apache2`
