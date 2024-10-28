@@ -20,11 +20,24 @@ comprobar que el puerto 3306 esté abierto y que funcione mediante telnet
 
 ## Máquina MYSQL  
 **Para instalar mysql.**  
-`sudo apt install php libapache2-mod-php php-mysql -y`  
+Lo primero que hago en mi fichero de provisionamiento es actualizar a la lista de paquetes, instalo **net-tools** por si acaso tengo que tocar alguna configuración de puertos dentro del servidor mysql.  
+El siguiente comando lo que hará es sobreescribir el fichero **mysqld.cnf** para hacer que el servidor **MYSQL** acepte conexión desde cualquiera que esté en la misma red.
+`sudo sed -i "s/^bind-address\s*=.*/bind-address = 192.168.10.34/" /etc/mysql/mysql.conf.d/mysqld.cnf`  
+Luego entra en el mysql, creando la base de datos, borrando el usuario, el cual solo se puede conectar desde un cliente que tenga la IP 192.168.10.33, lo vuelve a crear y le da todos los privilegios de la base de datos.
+```
+sudo mysql <<EOF
+CREATE DATABASE gestion_usuarios;
+DROP USER IF EXISTS 'DanieilG'@'192.168.10.33';
+CREATE USER 'DanielG'@'192.168.10.33' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON gestion_usuarios.* TO 'DanielG'@'192.168.10.33';
+FLUSH PRIVILEGES;
+EOF
+```
+![image](https://github.com/user-attachments/assets/c7a15dd1-a655-41c4-b1b8-4eb4f838d012)
+ 
+
 editar fichero /etc/mysql/mysql.conf.d/mysql.cnf  
 (captura)
 `sudo systemctl restart mysql.service`  
-He hecho un fichero de provisionamiento que crea la base de datos y el usuario añadiendole privilegios de la misma.  
-(captura de provisionamiento)  
 `mysql -u USERNAME -p -h IP-SERVIDOR-MYSQL` para conectarse al mysql desde el SV mysql.  
 
