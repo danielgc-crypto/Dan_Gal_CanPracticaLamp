@@ -48,7 +48,7 @@ Y por último falta aplicar la configuración.
 
 
 ## Comprobación desde HOST LOCAL
-![image](https://github.com/user-attachments/assets/34f16ccc-f565-4fcb-8030-6a829fc1506e)
+![image](https://github.com/user-attachments/assets/f2702618-f4b2-49a6-9ace-3e81793deb8b)
 
 
 
