@@ -1,11 +1,11 @@
 # Dani_Gal_CanPracticaLamp
 ## Vagrant file  
-![image](https://github.com/user-attachments/assets/74a2ef55-405f-48a4-bd4f-bddce2463e6a)
+![image](https://github.com/user-attachments/assets/40c9c9d3-653f-40ce-b87f-e6558afeb81c)
 
 ## Máquina MYSQL  
 **Para instalar mysql.**  
-Lo primero que hago en mi fichero de provisionamiento es actualizar a la lista de paquetes, instalo **net-tools** por si acaso tengo que tocar alguna configuración de puertos dentro del servidor mysql.  
-El siguiente comando lo que hará es sobreescribir el fichero **mysqld.cnf** para hacer que el servidor **MYSQL** acepte conexión desde cualquiera que esté en la misma red.  
+Lo primero que hago en mi fichero de provisionamiento es actualizar a la lista de paquetes e instalo las **net-tools** por si en algún momento es necesario configurar los puertos dentro del servidor mysql.  
+El siguiente comando lo que hará es sobreescribir el fichero **mysqld.lcnf** para hacer que el servidor **MYSQL** acepte conexión desde cualquiera que esté en la misma red.  
 `sudo sed -i "s/^bind-address\s*=.*/bind-address = 192.168.10.34/" /etc/mysql/mysql.conf.d/mysqld.cnf`  
 ![image](https://github.com/user-attachments/assets/9a7604bc-9389-413c-9a6c-fd7ed868782d)  
 Luego entra en el mysql, creando la base de datos, borrando el usuario, el cual solo se puede conectar desde un cliente que tenga la IP 192.168.10.33, lo vuelve a crear y le da todos los privilegios de la base de datos.
